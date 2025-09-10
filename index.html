@@ -478,29 +478,28 @@
 <script src="js/jquery.js"></script>
 
 <!-- цей скрипт в кожному індексі вкінці перед тегом </body> -->
-	<script> 
-		document.querySelectorAll('.form-block').forEach(form => {
-			form.addEventListener('submit', function (e) {
-				e.preventDefault();
+<script> 
+document.querySelectorAll('.form-block').forEach(form => {
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
 
-				const nameField = form.querySelector('[name="name"]');
-				const phoneField = form.querySelector('[name="phone"]');
+        const nameField = form.querySelector('[name="name"]');
+        const phoneField = form.querySelector('[name="phone"]');
 
-				if (nameField && phoneField) {
-					const name = nameField.value;
-					const phone = phoneField.value;
+        if (nameField && phoneField) {
+            const name = nameField.value;
+            const phone = phoneField.value;
 
-      // Save to localStorage
-					localStorage.setItem('order_name', name);
-					localStorage.setItem('order_phone', phone);
+            // Save to localStorage
+            localStorage.setItem('order_name', name);
+            localStorage.setItem('order_phone', phone);
 
-      // Submit after short delay
-					setTimeout(() => {
-						form.submit();
-					}, 50);
-				}
-			});
-		});
+            // Submit after short delay
+            setTimeout(() => {
+                form.submit();
+            }, 50);
+        }
+    });
 
 	</script>
 
