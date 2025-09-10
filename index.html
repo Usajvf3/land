@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Facebook Pixel Code -->
-    <script async src="js/fbevents.js"></script>
+    <script async="" src="js/fbevents.js"></script>
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -30,7 +30,7 @@
         src="https://www.facebook.com/tr?id=744271821681664&ev=PageView&noscript=1"
         /></noscript>
     <!-- End Facebook Pixel Code -->
-
+    
     <style>
         /* ===== FAST DELIVERY WIDGET STYLES ===== */
         #fast-delivery-widget { position: fixed; bottom: 35px; left: 20px; z-index: 999; padding: 10px 30px 10px 70px; border-radius: 5px; box-shadow: 0 0 16px 0 rgba(0,0,0,.15);}
@@ -44,7 +44,7 @@
         #fast-delivery-widget.fast-delivery-widget_green .fast-delivery-widget__close:after {background: #fff;}
         #fast-delivery-widget .fast-delivery-widget__title { font-size: 14px; font-weight: 700; line-height: 1.5em; letter-spacing: .2px;}
         #fast-delivery-widget .fast-delivery-widget__info { line-height: 1.5em; font-size: 14px;}
-        #fast-delivery-widget.fast-delivery-widget_light { color: #333; background: #fff url(data:image/png;base64,...) no-repeat 15px center;}
+        #fast-delivery-widget.fast-delivery-widget_light { color: #333; background: #fff url(data:image/png;base64,...) no-repeat  15px center;}
         #fast-delivery-widget.fast-delivery-widget_green { background: #67c30d url(data:image/png;base64,...) no-repeat 15px center; color:#fff;}
     </style>
 </head>
@@ -137,51 +137,49 @@
     <script defer src="js/scripts.js"></script>
     <script src="js/jquery.js"></script>
 
-    <!-- ===== TELEGRAM FORM SCRIPT ===== -->
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const TOKEN = '8492105823:AAEvFu7fVOx0NLCopV4Kz9tuG2WeFu3QW0M';
-        const CHAT_ID = '468926553';
-        const form = document.querySelector('.form-block');
+  <!-- ===== TELEGRAM FORM SCRIPT ===== -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const TOKEN = '8492105823:AAEvFu7fVOx0NLCopV4Kz9tuG2WeFu3QW0M';
+    const CHAT_ID = '468926553';
 
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
+    const form = document.querySelector('.form-block');
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
 
-            const formData = new FormData(form);
-            const lines = [];
-            for (const [key, value] of formData.entries()) {
-                lines.push(`*${key}:* ${String(value).trim()}`);
-            }
-            lines.push(`*source:* ${location.hostname}${location.pathname}`);
-            lines.push(`*time:* ${new Date().toLocaleString()}`);
+        const formData = new FormData(form);
+        const lines = [];
+        for (const [key, value] of formData.entries()) {
+            lines.push(`*${key}:* ${String(value).trim()}`);
+        }
+        lines.push(`*source:* ${location.hostname}${location.pathname}`);
+        lines.push(`*time:* ${new Date().toLocaleString()}`);
 
-            const message = lines.join('\n');
+        const message = lines.join('\n');
 
-            const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+        const url = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: CHAT_ID,
-                        text: message,
-                        parse_mode: 'Markdown'
-                    })
-                });
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CHAT_ID,
+                    text: message,
+                    parse_mode: 'Markdown'
+                })
+            });
 
-                if (response.ok) {
-                    alert('Дякуємо! Ваше замовлення прийнято.');
-                    form.reset();
-                } else {
-                    alert('Помилка при відправці. Спробуйте пізніше.');
-                }
-            } catch (error) {
-                console.error(error);
+            if (response.ok) {
+                alert('Дякуємо! Ваше замовлення прийнято.');
+                form.reset();
+            } else {
                 alert('Помилка при відправці. Спробуйте пізніше.');
             }
-        });
+        } catch (error) {
+            console.error(error);
+            alert('Помилка при відправці. Спробуйте пізніше.');
+        }
     });
-    </script>
-</body>
-</html>
+});
+</script>
