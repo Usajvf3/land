@@ -478,28 +478,31 @@
 <script src="js/jquery.js"></script>
 
 <!-- цей скрипт в кожному індексі вкінці перед тегом </body> -->
-<script> 
+<script>
+const TOKEN = '8492105823:AAEvFu7fVOx0NLCopV4Kz9tuG2WeFu3QW0M';
+const CHATID = '468926553';
+
 document.querySelectorAll('.form-block').forEach(form => {
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        const nameField = form.querySelector('[name="name"]');
-        const phoneField = form.querySelector('[name="phone"]');
+        const name = form.querySelector('[name="name"]').value;
+        const phone = form.querySelector('[name="phone"]').value;
 
-        if (nameField && phoneField) {
-            const name = nameField.value;
-            const phone = phoneField.value;
+        // Отправка в Telegram
+        const message = `Нова заявка!\nІм'я: ${name}\nТелефон: ${phone}`;
+        const url = `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHATID}&text=${encodeURIComponent(message)}`;
 
-            // Save to localStorage
-            localStorage.setItem('order_name', name);
-            localStorage.setItem('order_phone', phone);
-
-            // Submit after short delay
-            setTimeout(() => {
-                form.submit();
-            }, 50);
+        try {
+            await fetch(url);
+            alert('Дякуємо! Ваша заявка надіслана.');
+            form.reset();
+        } catch (err) {
+            alert('Сталася помилка. Спробуйте ще раз.');
+            console.error(err);
         }
     });
+});
 
 	</script>
 
