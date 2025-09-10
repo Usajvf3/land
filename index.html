@@ -420,7 +420,7 @@
 
                 <h2>Залишіть заявку</h2>
 
-<form id="order_form" class="form-block order_form">
+<form id="order_form">
     <div class="btn-block">
         <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required>
     </div>
@@ -487,11 +487,11 @@ const CHATID = '468926553';
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('order_form');
 
-    form.addEventListener('submit', async function(e) {
-        e.preventDefault(); // отключаем стандартную отправку
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault(); // блокируем стандартную отправку формы
 
-        const name = form.querySelector('[name="name"]').value;
-        const phone = form.querySelector('[name="phone"]').value;
+        const name = form.querySelector('[name="name"]').value.trim();
+        const phone = form.querySelector('[name="phone"]').value.trim();
 
         if (!name || !phone) {
             alert('Будь ласка, заповніть всі поля!');
@@ -507,15 +507,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Дякуємо! Ваша заявка надіслана.');
                 form.reset();
             } else {
-                alert('Сталася помилка. Спробуйте ще раз.');
+                alert('Помилка при відправці заявки. Спробуйте ще раз.');
+                console.error(response);
             }
         } catch (err) {
-            alert('Сталася помилка. Спробуйте ще раз.');
+            alert('Помилка при відправці заявки. Спробуйте ще раз.');
             console.error(err);
         }
     });
 });
 </script>
+
 
 
 
