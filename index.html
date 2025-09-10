@@ -428,7 +428,7 @@
         <input class="field" type="tel" name="phone" minlength="8" maxlength="15" placeholder="Введіть Ваш телефон" required>
     </div>
     <div class="btn-block">
-        <button type="button" class="button" id="submitBtn">Придбати зараз</button>
+        <button type="submit" class="button">Придбати зараз</button>
     </div>
 </form>
                     </div>
@@ -484,29 +484,38 @@
 const TOKEN = '8492105823:AAEvFu7fVOx0NLCopV4Kz9tuG2WeFu3QW0M';
 const CHATID = '468926553';
 
-document.querySelectorAll('.form-block').forEach(form => {
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('order_form');
+
     form.addEventListener('submit', async function(e) {
-        e.preventDefault();
+        e.preventDefault(); // отключаем стандартную отправку
 
         const name = form.querySelector('[name="name"]').value;
         const phone = form.querySelector('[name="phone"]').value;
 
-        // Отправка в Telegram
+        if (!name || !phone) {
+            alert('Будь ласка, заповніть всі поля!');
+            return;
+        }
+
         const message = `Нова заявка!\nІм'я: ${name}\nТелефон: ${phone}`;
         const url = `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHATID}&text=${encodeURIComponent(message)}`;
 
         try {
-            await fetch(url);
-            alert('Дякуємо! Ваша заявка надіслана.');
-            form.reset();
+            const response = await fetch(url);
+            if (response.ok) {
+                alert('Дякуємо! Ваша заявка надіслана.');
+                form.reset();
+            } else {
+                alert('Сталася помилка. Спробуйте ще раз.');
+            }
         } catch (err) {
             alert('Сталася помилка. Спробуйте ще раз.');
             console.error(err);
         }
     });
 });
-
-	</script>
+</script>
 
 
 
