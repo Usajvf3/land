@@ -420,15 +420,17 @@
 
                 <h2>Залишіть заявку</h2>
 
-                <form id="order_form" class="form-block order_form" action="order.php" method="POST">
-                    <div class="btn-block">
-                        <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required="">
-                    </div>
-                    <div class="btn-block">
-                        <input class="field" type="tel" name="phone" minlength="8" maxlength="15" placeholder="Введіть Ваш телефон" required="">
-                    </div>
-                    <div class="btn-block">
-                        <button class="button">Придбати зараз</button>
+<form id="order_form" class="form-block order_form">
+    <div class="btn-block">
+        <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required>
+    </div>
+    <div class="btn-block">
+        <input class="field" type="tel" name="phone" minlength="8" maxlength="15" placeholder="Введіть Ваш телефон" required>
+    </div>
+    <div class="btn-block">
+        <button type="button" class="button" id="submitBtn">Придбати зараз</button>
+    </div>
+</form>
                     </div>
                 </form>
                 <div class="products_count">* Купили <b>17</b> шт за акцією</div>
