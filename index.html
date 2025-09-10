@@ -1,0 +1,509 @@
+<!DOCTYPE html><html lang="uk"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+    Інтернет-магазин    </title>
+    <meta name="description" content="Великий асортимент">
+    <meta name="keywords" content="Інтернет-магазин">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Facebook Pixel Code -->
+    <script async="" src="js/fbevents.js"></script><script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '744271821681664');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=744271821681664&ev=PageView&noscript=1"
+        /></noscript>
+        <!-- End Facebook Pixel Code -->
+        
+        
+        
+        <style>#fast-delivery-widget {
+            position: fixed;
+            bottom: 35px;
+            left: 20px;
+            z-index: 999;
+            padding: 10px 30px 10px 70px;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 0 16px 0 rgba(0,0,0,.15);
+            box-shadow: 0 0 16px 0 rgba(0,0,0,.15);
+        }
+        #fast-delivery-widget .fast-delivery-widget__close {
+            display: block;
+            width: 11px;
+            height: 11px;
+            position: absolute;
+            top:10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        #fast-delivery-widget .fast-delivery-widget__close:before,
+        #fast-delivery-widget .fast-delivery-widget__close:after {
+            content:'';
+            display: block;
+            width: 1px;
+            height: 15px;
+            position: absolute;
+            top:-2px;
+        }
+        #fast-delivery-widget .fast-delivery-widget__close:before {
+            left: 5px;
+            -moz-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+        #fast-delivery-widget .fast-delivery-widget__close:after {
+            left: 5px;
+            -moz-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        #fast-delivery-widget.fast-delivery-widget_light .fast-delivery-widget__close:before,
+        #fast-delivery-widget.fast-delivery-widget_light .fast-delivery-widget__close:after {
+            background: #b5b5b5;
+        }
+        #fast-delivery-widget.fast-delivery-widget_green .fast-delivery-widget__close:before,
+        #fast-delivery-widget.fast-delivery-widget_green .fast-delivery-widget__close:after {
+            background: #fff;
+        }
+
+        #fast-delivery-widget .fast-delivery-widget__title {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.5em;
+            letter-spacing: .2px;
+        }
+        #fast-delivery-widget .fast-delivery-widget__info {
+            line-height: 1.5em;
+            font-size: 14px;
+        }
+
+        #fast-delivery-widget.fast-delivery-widget_light {
+            color: #333;
+            background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAFFklEQVRYhcXYaYydUxgH8N+t0dYyU0qLoqViryX2ZVS1tEVryRBrLJUYiYgPEiFEgk8IQiQm9lL70qIttaczidoaS60tsS+lWrdMtarjw3Pe3neue8edMcM/OXnvPec95/zfZzvPcwrNrfV6iH7YHielthQPYw4+w+paFmlpLFbsr+sBoYEYgyYcj01yYwdjMZ7FLLTh2x7s0S1imyYyJyYCA1P/EjyJ9XEUhuKM1N7GXMzAK+joLWL9MBJn4hRslxv7FPfiMXyCdbAtjhWq3R17pnZOIvkkHsVX+LOrjQtVbKwe+ycyTRiU+tsxPxF6BL9UWXcARieCY8o+qIinMR3zWhqL39RCbBgm4ARMFBKD74VRP5aef1QhVAnDMV6ouRFDcmPvYDZeQmtLY3FlObFdcTqOxm65iR/hfjyFd7tBZisckjb+INtLqHWc0MIBufeXC1XPwvSWxuInhebW+qtwPganl1YIQ50mpLOkRjL9sQvOThsPEyFkBm4VJrAmvduQSB6HI7FTbp0luKvQ3Fq/FBvlBubiYrxWI6EBGIspQuLrpf7VSs71O2Zialo/C15DE7mr0+8MvxSaW+t/KOuEn/C88KDn8FsXxCYJVRfS/w6h/qnYW0hwx9z7LwrDHybseK/cWPYxiwvNrfWLhUHeINR4rpKBrsZbeAgPiOBZjgPS2La5vvlpzn1YNxG4DCOqfNwbuAtb4Ar82C83+Bouxz64VBh+nQgbN+J1XIs90mYZ5glvuzCtsSxJ4VoswJVCcoN0xspEZizGtjQWW/BhNpiX2BTcnZvYIPR/kvCwLK6swONCXfMSkTwmJVI7V5DMl+k5HO9jVP6sPK+t4exEtpPEylEUgXRSIngLvhbGfbqIP9OFpLYRnnWhOIqGlK21BtdhctqYiJH9q21ey1nZIQLgS7gZxwiD3lVE9TG4IK2Vt6FFqU0Ux89N+CbN/0d0JbFKWIjrhWpPFp7bLo6cEUKtc3CWiFNXp3kFJVOoKXHoLrEMWe41Prf5r0JVE0Wo+E0ppmXk8s8+IZbHF+nZLkJLHpVItHcxtha9QSyTSj8ldZVjDVYJle+X+rpUaU8y2HJ0VPmdR0GEot2V4tmvusjJeoNYV8jWX1c4DJEktuF2/yOx74SjbCw8eBZeVkMK1dfE3sPhIgNZIPKumtDXxNaIA73b6A2v7BNUIzYSO/yXRMpRidhuaMWruAeH6hzB+xJrg26eWFahdKQ2WNSTr4i8/VSdq+6+wIpKxLJiZIE4765RcuvxIv+6Q41nXQ+xWfajTiknugyjRHXUhktEqjJOZAvjRPLYqzivraFBHP6TRTYLA+pwpyjhN0ezSPTm4jaRDE5LbZQImDXfP3SBDUU+15TayNzYMjxQh4vwYCI0XlQ0E1KbL1Q4U6j432KUcKbjcZiSKa0SBe8cPNHSWHw7C7BvpjZSFKBNaeJeqV0gVckik+2O1IYqXRGMxpa5sYXiymqOuCJYWwBUu1QZjINEbj9ZXDERlyivizDyhChkTxVS/Sl92PIkiYPSB07QuTBpxwviHqS1pbH4eSUC1Y6kn4X6nhFl/5S0ydY4IrX3RIGSeXOHCMr7pQ/aV6nMWylKsxmiiF7oHy5mqkmsEoaJUq4JByrZxx+JwCoRh/L148fCw2cIKf1evmhvXHV+KwrfO4XEjhNGvEEa75/acmE3sxOpRd3Yo0fEMhRFwfuUqBVPE1Isisu82eKG8W/S6Q7+AhQaQsvQfI6FAAAAAElFTkSuQmCC) no-repeat  15px center;
+        }
+
+        #fast-delivery-widget.fast-delivery-widget_green {
+            background: #67c30d url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAExUlEQVRYhcWYe4hXRRTHP7s+1lLX0rSyl1iKlZqR9KA3pVhtkEllapZQUQQVPdA/pCh7kGFRGASp2UusoPQPzcpealiBJiZWupmWJK6K66rrez/9MXPdu3fvPn4/3PrCcOfO3JnznXPOzD1nSlSKRCnQD7gjlp3Ah8DnwAbgcLETA5QUQawTcA0wChgJ9Mj0VwGLgAXAMuCftiZ2UiRzG3B5JAiwA5gPHA/cCJSnxqwClgDzgG+B1mtBba6UqueoU9RKG6JSfUo9T22vlqkD1InqSvVw6ts96jL1SbWP2q4FuU0S66per85Uq1MC9qpL1fvUbs1MXKYOU2fkLGiX+r46Sj2ttcR6qxPUBeqR1GRb1NlqhdqhpdVmypnqveonalWG5Cr1haiEsjxi56svqqszA39VJ6uDCyRzunqnwcxJW4l6ofqEujwjp0ZdYnCD/gmxZ9UdqY9q1YXqGLVHAWQ6qkPU19TNal2cd6Y61OCvybfl6lXqK3HxaWxXp6LuzHR8p15SAKEy9Qb147ioBIdS9X2xvyKSSsb2Uu9Xt2Y4VJPTqLpNnaOOVDu3QKwiaidBnfqewW8mqr9l5l6sPqQ+r67I9CWL2Yr1DjlNfc6GDnpI/UF9NK4uj9il6oaMgBWGo+EU9QzDLt6Yo4AEP6kPqM/E96o0sdut30WTbGz7jepU9QIb78ze6sNxEWnX2K7OUt+0scvsN/jftWqXOM/oPGITMsLK1fGGo6MmNWGtwVQj1BPMN+3aJjSzKRbVNTljJyTESpv5KdQA7wIVwC3AdGAzcBwwDlgIfAo8AvQBBsT6eKBnZq464GXgZmBWbCsFOjb3S2pKY3mln/p4XG0alTb2ofXqZ7F+0PpTfnJsW2s4YgrWWB7WA9OAK4HRwJdALXA2cBZQTQh77gGGAFPiuBKga6y3b42gQoklSGKv4SnhewimGgG8A+wlmD1BSebZJsTS2BSftcCKTF8eidpm+o7iWBBLtFJKvbmyqAMOEkx+cWxr1qStsncLsIl6GiXA28BgoFts2wMcaUtizSGZvwNhwwD8TQi53+J/JLaFsFFOJOzgBcA3wOqWBrY1sV+A64EyYA2wu7UD25pYHbCymIHHYle2CZoi1hfo/18SySKP2CBgKbAcmA1cTcMTvC1x9NBNEzsQn8bSHbibkKjOA8bQOOs+1tiXR6x7fK4h/O9eon5bDwc+AGbQyn9dkTj5aM36hHaLIdK8IhWGnKqOM8Tpql8Z0rC8UGWb2rMVoVO2lKtj1bmpEGwXhlg/nW3XqovUW9VOqQkGmp/OFUOsiyETm6r+0TCMc6f6RvLhUPV1G2c0K9THjEloE6UQYgMNGdJiG2b6B9QfDTnuEG18RdA3Dvw6Q/BPdbp6nYWbspfBHeYYEuE01kWF3GTDfLPJS5XuhqRiruEiJUG1+oUhS0/MPCZFrGtsKzX46qs2Tkz2qvPVuww3P7kcWvKFduqgKOCvjIDVhix6UnyvUi9SH1S/N8T5CfarP6tPG+4zWryYKeTirjfhSnMUcBn1R80hQlhzkHAOdUuN+Z0Q4swDFgP7WyusmKvOcmAYIaUbCXTO9O8mXHUujKQqCxVQLLEEHYBzgbEELdYAH0VC6yhAO3n4FwMIGWoKRfvWAAAAAElFTkSuQmCC) no-repeat 15px center;
+            color:#fff;
+        }    
+    </style></head>
+    <body>
+
+        <div class="main_wrapper">
+            <header class="active">
+                <svg class="nav-button" id="hamburger" fill="none" viewBox="0 0 52 23">
+                    <path stroke="#fff" stroke-linecap="round" stroke-width="3" d="M2 1.5h48M2 21.5h48M2 11.5h48"></path>
+                </svg>
+            </header>
+            <nav id="menu" class="modal-body">
+                <div class="modal-block">
+                    <ul>
+                        <li>
+                            <a href="#home">Головна </a><svg viewBox="0 0 16 16">
+                                <path d="M6 8l4-3.5v7L6 8z"></path>
+                            </svg>
+                        </li>
+                        <li>
+                            <a href="#video">Відео </a><svg viewBox="0 0 16 16">
+                                <path d="M6 8l4-3.5v7L6 8z"></path>
+                            </svg>
+                        </li>
+                        <li>
+                            <a href="#peculiarities">ПЕРЕВАГИ </a><svg viewBox="0 0 16 16">
+                                <path d="M6 8l4-3.5v7L6 8z"></path>
+                            </svg>
+                        </li>
+                        <li>
+                            <a href="#description">Опис </a><svg viewBox="0 0 16 16">
+                                <path d="M6 8l4-3.5v7L6 8z"></path>
+                            </svg>
+                        </li>
+                        <li>
+                            <a href="#characteristic">ХАРАКТЕРИСТИКИ </a><svg viewBox="0 0 16 16">
+                                <path d="M6 8l4-3.5v7L6 8z"></path>
+                            </svg>
+                        </li>
+                        <li>
+                            <a href="#feedback">ВІДГУКИ </a><svg viewBox="0 0 16 16">
+                                <path d="M6 8l4-3.5v7L6 8z"></path>
+                            </svg>
+                        </li>
+                        <li>
+                            <a href="#order_form">замовити </a><svg viewBox="0 0 16 16">
+                                <path d="M6 8l4-3.5v7L6 8z"></path>
+                            </svg>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- header 3 -->
+            <div id="home" class="offer_section offer3 offer_section-top" style=" margin: 0; ">
+                <div class="benefits_list clearfix">
+                    <div class="benefit_item">Доставка по Україні</div>
+                    <div class="benefit_item">Обмежена пропозиція</div>
+                    <div class="benefit_item">Оплата при отриманні</div>
+                </div>
+                <div class="image_block">
+                    <h1 class="box-title">
+                        <div class="text">Швабра з розпилювачем</div>
+                    </h1>
+                    <img class="offer_image" src="images/offer__image.jpg" alt="Швабра з віджиманням та відром" title="Швабра з віджиманням та відром">
+                    <div class="discount_block">
+                        <div class="value">-
+                            35%
+                        </div>
+                        <div class="text">знижка</div>
+                    </div>
+                </div>
+                <div class="timer_block clearfix">
+                    <p>Ця пропозиція закінчиться через:</p>
+                    <div class="timer clearfix">
+                        <div class="timer_item">
+                            <div class="text">годин</div>
+                            <div class="count hours"></div>
+                        </div>
+                        <div class="timer_item">
+                            <div class="text">хвилин</div>
+                            <div class="count minutes"></div>
+                        </div>
+                        <div class="timer_item">
+                            <div class="text">секунд</div>
+                            <div class="count seconds"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price_block">
+                    <div class="price_item old">
+                        <div class="text">
+                            Звичайна ціна:
+                        </div>
+                        <div class="value">
+                            <span>1090</span>
+                            <small>грн.</small>
+                        </div>
+                    </div>
+                    <div class="price_item new">
+                        <div class="text">
+                            Ціна по акції:
+                        </div>
+                        <div class="value">
+                            <span>550</span>
+                            <small>грн.</small>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <!--<li>Інноваційна система розділення води</li>-->
+                    <li>Дає змогу мити підлогу тільки чистою водою</li>
+                    <li>Компактна та легка конструкція</li>
+                    <!--<li>Квадратна форма</li>-->
+                    <li>Підходить для миття важкодоступних місць</li>
+                    <!--<li>Повертається на 360 градусів</li>-->
+                </ul>
+                <div class="btn-block">
+                    <a href="#order_form" class="button">Придбати зараз</a>
+                </div>
+                <div class="products_count">* Купили <b>17</b> шт за акцією</div>
+                <!--</div>-->
+                <!-- /header 3 -->
+                <!-- /header 3 -->
+                <!-- video -->
+                <!--<div id="video" class="video_block">-->
+                    <!--    <div class="youtube" id="Gce-kdCciKU"><img src="img/bg-preview.jpg" alt="Швабра з віджиманням та відром"-->
+                        <!--            title="Швабра з віджиманням та відром"></div>-->
+                        <!--</div>-->
+                        <!-- /video -->
+                        <!--description_section-->
+                        <section id="description" class="description_section">
+                            <h2 class="title">
+                                <div class="text">Швабра з розпилювачем</div>
+                            </h2>
+                            <div class="text_block">
+                                <img src="images/image_1.jpg">
+                                <p><b>Розумне прибирання — легко і швидко.</b></p>
+                                <p>Ця швабра з розпилювачем створена для тих, хто цінує свій час і комфорт. Забудьте про важкі відра, брудну воду і зайві рухи — все, що потрібно для ідеальної чистоти, вже вбудовано. Просто натисніть і почніть мити.</p>
+                            </div>
+                            <div class="text_block">
+                                <img src="images/image_2.jpg">
+                                <p><b>Проста підготовка — лише кілька секунд</b></p>
+                                <p>Щоб почати прибирання, достатньо налити чисту воду (можна з мийним засобом) у спеціальний резервуар. Заливати зручно навіть однією рукою — нічого не проллється, не треба нічого відкручувати.</p>
+                            </div>
+                            <div class="text_block">
+                                <img src="images/image_3.jpg">
+                                <p><b>Насадка виготовлена з мікрофібри, яка відмінно вбирає вологу.</b></p>
+                                <p>Швабра створена з комбінації легкого алюмінію та міцного пластику — її зручно тримати, вона не важка, але водночас досить надійна. Під час прибирання ти відчуваєш, що все під контролем — нічого не гнеться, не скрипить і не розвалюється. Служитиме довго!</p>
+                                <p>Вона дозволить навести чистоту в усіх куточках вашого будинку.</p>
+                            </div>
+                            <div class="text_block">
+                                <img src="images/image_4.jpg">
+                            <p></p><b>Швабра з телескопічною ручкою і насадка з мікрофібри, яку можна прати в машинці при 30 градусах.</b><p></p>
+                            <p>Насадка з щільної мікрофібри не просто забирає пил — вона буквально «збирає» весь бруд із підлоги. Можна мити як з розпиленням, так і без нього. Після прибирання легко знімається, переться й виглядає як нова. І головне — вистачає надовго!</p>
+                        </div>
+                        <div class="text_block">
+                            <img src="images/image_5.jpg">
+                        </div>
+                    </section>
+                    <!--/description_section-->
+                    <h2 id="characteristic" class="title">Характеристики</h2>
+                    <!--characteristics_list2-->
+                    <div class="characteristics_list2">
+                        <div class="characteristic_item">
+                            <div class="text">Розміри швабри – 123 Х 21 Х21 см</div>
+                        </div>
+                        <div class="characteristic_item">
+                            <div class="text">Ємність для води: 350 мл</div>
+                        </div>
+                        <div class="characteristic_item">
+                            <div class="text">Вага - 1 Кг</div>
+                        </div>
+                        <div class="characteristic_item">
+                            <div class="text">Матеріал - АБС-пластик, метал, мікрофібра</div>
+                        </div>
+                        <div class="characteristic_item">
+                            <div class="text">Тип ручки - телескопічна</div>
+                        </div>
+                    </div>
+                    
+                    <h2 id="characteristic" class="title">Комплектація</h2>
+                    <!--characteristics_list2-->
+                    <div class="characteristics_list2">
+                        <div class="characteristic_item">
+                            <div class="text">Швабра - 1 шт</div>
+                        </div>
+                        <div class="characteristic_item">
+                            <div class="text">Мікрофібра - 1 шт</div>
+                        </div>
+                        <div class="characteristic_item">
+                            <div class="text"></div>
+                        </div>
+                        <div class="characteristic_item">
+                            <div class="text"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="image_block">
+                        <img src="images/111.jpg" alt="Швабра з віджиманням та відром" title="Швабра з віджиманням та відром">
+                    </div>
+                    <!--/characteristics_list2-->
+                    <!-- reviews 2 -->
+                    <section id="feedback" class="reviews2_section">
+                    <p></p>Завдяки вбудованому резервуару на 350 мл тобі більше не потрібно тягати за собою відро. Просто залий воду або мийний засіб прямо в контейнер — і вперед. Вистачає на повноцінне прибирання кімнати чи навіть двох.<p></p>
+                <p></p>    <p></p>
+                <h2 class="title">Відгуки покупців</h2>
+                <div class="reviews_stats_block">
+                    <p><b>98%</b> покупців рекомендують цей товар</p>
+                    <div class="line"></div>
+                </div>
+                <div class="reviews_list1 owl-carousel">
+                    <div class="review_item">
+                        <img class="photo" src="images/rev1.jpg" alt="Швабра з віджиманням та відром" title="Швабра з віджиманням та відром">
+                    </div>
+                    <div class="review_item">
+                        <img class="photo" src="images/rev2.jpg" alt="Швабра з віджиманням та відром" title="Швабра з віджиманням та відром">
+                    </div>
+                </div>
+            </section>
+            <!-- /reviews 2 -->
+            <!-- order steps 2 -->
+            <div class="order_steps_list1 clearfix">
+                <h2 class="title">Як замовити?</h2>
+                <div class="box">
+                    <div class="step_item">
+                        <div class="number">1</div>
+                        <h4>Заявка</h4>
+                        <p>Залишаєте заявку на нашому сайті</p>
+                    </div>
+                    <div class="step_item">
+                        <div class="number">2</div>
+                        <h4>Дзвінок</h4>
+                        <p>Менеджер передзвонить для уточнення деталей</p>
+                    </div>
+                    <div class="step_item">
+                        <div class="number">3</div>
+                        <h4>Надсилання</h4>
+                        <p>Доставляємо ваш товар протягом
+                            1-3
+                        днів</p>
+                    </div>
+                    <div class="step_item">
+                        <div class="number">4</div>
+                        <h4>Отримання</h4>
+                        <p>Оплачуєте при отриманні поштою</p>
+                    </div>
+                </div>
+            </div>
+            <!-- result.php? steps 2 -->
+            <!-- order 3 -->
+            <section class="offer_section offer3">
+                <div class="title_block">
+                </div>
+                <div class="timer_block clearfix">
+                    <p>Ця пропозиція закінчиться через:</p>
+                    <div class="timer clearfix">
+                        <div class="timer_item">
+                            <div class="text">годин</div>
+                            <div class="count hours"></div>
+                        </div>
+                        <div class="timer_item">
+                            <div class="text">хвилин</div>
+                            <div class="count minutes"></div>
+                        </div>
+                        <div class="timer_item">
+                            <div class="text">секунд</div>
+                            <div class="count seconds"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="image_block">
+                    <h1 class="box-title">
+                        <div class="text">Швабра з розпилювачем</div>
+                    </h1>
+                    <img class="offer_image" src="images/offer__image.jpg" alt="Швабра з віджиманням та відром" title="Швабра з віджиманням та відром">
+                    <div class="discount_block">
+                        <div class="value">-
+                            35%
+                        </div>
+                        <div class="text">знижка</div>
+                    </div>
+                </div>
+                <div class="benefits_list clearfix">
+                    <div class="benefit_item">Доставка по Україні</div>
+                    <div class="benefit_item">Обмежена пропозиція</div>
+                    <div class="benefit_item">Оплата при отриманні</div>
+                </div>
+                <div class="price_block">
+                    <div class="price_item old">
+                        <div class="text">
+                            Звичайна ціна:
+                        </div>
+                        <div class="value">
+                            <span>1090</span>
+                            <small>грн.</small>
+                        </div>
+                    </div>
+                    <div class="price_item new">
+                        <div class="text">
+                            Ціна по акції:
+                        </div>
+                        <div class="value">
+                            <span>550</span>
+                            <small>грн.</small>
+                        </div>
+                    </div>
+                </div>
+                <ul>
+                    <!--<li>Інноваційна система розділення води</li>-->
+                    <li>Дає змогу мити підлогу тільки чистою водою</li>
+                    <li>Компактна та легка конструкція</li>
+                    <!--<li>Квадратна форма</li>-->
+                    <li>Підходить для миття важкодоступних місць</li>
+                    <!--<li>Повертається на 360 градусів</li>-->
+                </ul>
+
+                <h2>Залишіть заявку</h2>
+
+                <form id="order_form" class="form-block order_form" action="order.php" method="POST">
+                    <div class="btn-block">
+                        <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required="">
+                    </div>
+                    <div class="btn-block">
+                        <input class="field" type="tel" name="phone" minlength="8" maxlength="15" placeholder="Введіть Ваш телефон" required="">
+                    </div>
+                    <div class="btn-block">
+                        <button class="button">Придбати зараз</button>
+                    </div>
+                </form>
+                <div class="products_count">* Купили <b>17</b> шт за акцією</div>
+            </section>
+            <!-- result.php? 3 -->
+            <!-- footer -->
+            <div class="container">
+                <h3 style="text-align:center">Реєстрація на акцію «Розпакуй власну квартиру»!</h3>
+                <div class="np_box" style="display: inline-block;
+                height: 100%;
+                width: 100%;
+                max-height: 300px;">
+                <a href="https://novaposhta.ua/flat2_delivery">
+                    <img src="images/np-2.jpeg" alt="image" style="display:block; width:100%; height:100%">
+                </a>
+            </div>
+        </div>
+        <footer class="footer_section">
+            <div style="font-size:13px;text-align: center;">         
+              <p style="text-align: center">
+
+                Графік работи:
+                Пн - Нд: 08:00 - 23:00 <br>
+                
+                <br>
+                <br>
+                <a style="color:inherit;" href="politics.html">Політика конфіденційності</a>
+                <br>
+                <a style="color:inherit;" href="agreement.html">Угода користувача</a>
+                <br>
+                <a style="color:inherit;" href="garantiya.html">Умови гарантії та повернення</a>
+            </p>
+        </div>
+    </footer>
+    <!-- /footer -->
+</div>
+<!--/main_wrapper-->
+<!-- scripts -->
+
+<script defer="" src="js/previewYouTube.js"></script>
+<script defer="" src="js/owl.carousel.min.js"></script>
+<script defer="" src="js/scripts.js"></script>
+<!-- /scripts -->
+
+
+
+<script src="js/jquery.js"></script>
+
+<!-- цей скрипт в кожному індексі вкінці перед тегом </body> -->
+	<script> 
+		document.querySelectorAll('.form-block').forEach(form => {
+			form.addEventListener('submit', function (e) {
+				e.preventDefault();
+
+				const nameField = form.querySelector('[name="name"]');
+				const phoneField = form.querySelector('[name="phone"]');
+
+				if (nameField && phoneField) {
+					const name = nameField.value;
+					const phone = phoneField.value;
+
+      // Save to localStorage
+					localStorage.setItem('order_name', name);
+					localStorage.setItem('order_phone', phone);
+
+      // Submit after short delay
+					setTimeout(() => {
+						form.submit();
+					}, 50);
+				}
+			});
+		});
+
+	</script>
+
+
+
+</div></body></html>
