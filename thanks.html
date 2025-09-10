@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дякуємо за замовлення!</title>
+<style>
+    /* Переливной фон градиента */
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #67c30d, #a0e426, #67c30d);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @keyframes gradientBG {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    .thank-you-container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 40px 20px;
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        animation: popIn 0.5s ease-out;
+    }
+
+    @keyframes popIn {
+        0% { transform: scale(0.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .checkmark {
+        font-size: 60px;
+        color: #67c30d;
+        margin-bottom: 20px;
+        animation: bounce 0.6s ease;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+        40% { transform: translateY(-15px); }
+        60% { transform: translateY(-7px); }
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    p {
+        font-size: 16px;
+        color: #555;
+        line-height: 1.5;
+    }
+
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 22px;
+        }
+        p {
+            font-size: 14px;
+        }
+        .thank-you-container {
+            padding: 30px 15px;
+        }
+        .checkmark {
+            font-size: 50px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="thank-you-container">
+    <div class="checkmark">✔️</div>
+    <h1>Дякуємо за замовлення!</h1>
+    <p>Ми скоро з вами зв’яжемося для підтвердження замовлення.</p>
+</div>
+</body>
+</html>
