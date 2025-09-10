@@ -504,8 +504,8 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch(url);
             if (response.ok) {
-                alert('Дякуємо! Ваша заявка надіслана.');
-                form.reset();
+                // Перенаправление на страницу благодарности
+                window.location.href = 'thanks.html'; // <-- укажи путь к своей странице спасибо
             } else {
                 alert('Помилка при відправці заявки. Спробуйте ще раз.');
                 console.error(response);
@@ -517,6 +517,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
+
 
 
 
