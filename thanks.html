@@ -66,6 +66,26 @@
         line-height: 1.5;
     }
 
+    /* Кнопка */
+    .ok-button {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #67c30d;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        text-decoration: none;
+    }
+
+    .ok-button:hover {
+        background-color: #57a80b;
+    }
+
     @media (max-width: 480px) {
         h1 {
             font-size: 22px;
@@ -78,6 +98,10 @@
         }
         .checkmark {
             font-size: 50px;
+        }
+        .ok-button {
+            padding: 10px 25px;
+            font-size: 14px;
         }
     }
 </style>
@@ -102,8 +126,4 @@ src="https://www.facebook.com/tr?id=1354578476026554&ev=PageView&noscript=1"
 <body>
 <div class="thank-you-container">
     <div class="checkmark">✔️</div>
-    <h1>Дякуємо за замовлення!</h1>
-    <p>Ми скоро з вами зв’яжемося для підтвердження замовлення.</p>
-</div>
-</body>
-</html>
+    <h1>Дякуєм
