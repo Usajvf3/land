@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Дякуємо за замовлення!</title>
 <style>
-    /* Переливной фон градиента */
     body {
         margin: 0;
         padding: 0;
@@ -34,6 +33,7 @@
         width: 90%;
         box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         animation: popIn 0.5s ease-out;
+        position: relative;
     }
 
     @keyframes popIn {
@@ -66,43 +66,26 @@
         line-height: 1.5;
     }
 
-    /* Кнопка */
+    /* Невидимая кнопка ОК */
     .ok-button {
-        display: inline-block;
-        margin-top: 25px;
-        padding: 12px 30px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #fff;
-        background-color: #67c30d;
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 30px;
+        background: transparent;
         border: none;
-        border-radius: 10px;
         cursor: pointer;
-        transition: background 0.3s ease;
-        text-decoration: none;
-    }
-
-    .ok-button:hover {
-        background-color: #57a80b;
+        opacity: 0; /* полностью невидимая */
     }
 
     @media (max-width: 480px) {
-        h1 {
-            font-size: 22px;
-        }
-        p {
-            font-size: 14px;
-        }
-        .thank-you-container {
-            padding: 30px 15px;
-        }
-        .checkmark {
-            font-size: 50px;
-        }
-        .ok-button {
-            padding: 10px 25px;
-            font-size: 14px;
-        }
+        h1 { font-size: 22px; }
+        p { font-size: 14px; }
+        .thank-you-container { padding: 30px 15px; }
+        .checkmark { font-size: 50px; }
+        .ok-button { width: 50px; height: 25px; }
     }
 </style>
 </head>
@@ -126,4 +109,9 @@ src="https://www.facebook.com/tr?id=1354578476026554&ev=PageView&noscript=1"
 <body>
 <div class="thank-you-container">
     <div class="checkmark">✔️</div>
-    <h1>Дякуєм
+    <h1>Дякуємо за замовлення!</h1>
+    <p>Ми скоро з вами зв’яжемося для підтвердження замовлення.</p>
+    <button class="ok-button" onclick="alert('Натиснули OK!')">OK</button>
+</div>
+</body>
+</html>
