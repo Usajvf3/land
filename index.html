@@ -416,38 +416,24 @@
 </form>
 
 <script>
-document.getElementById('order_form').addEventListener('submit', async (e) => {
-  e.preventDefault();
+const API_URL = 'https://lead-proxy.devis-math-ragnar.workers.dev/send'; // ПОЛНЫЙ https URL
 
-  const formData = new FormData(e.target);
-  const name = formData.get('name').trim();
-  const phone = formData.get('phone').trim();
-
-  if(!name || !phone){
-    alert('Будь ласка, заповніть всі поля.');
-    return;
-  }
-
-  // Заменить на ваш URL из Cloudflare Workers (заканчивается на /send)
-  const API_URL = 'lead-proxy.devis-math-ragnar.workers.dev/send';
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('order_form');
-    if (!form) return;
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name  = form.name.value.trim();
-      const phone = form.phone.value.trim();
-      if (!name || !phone) {
-        alert('Будь ласка, заповніть всі поля!');
-        return;
-      }
-      const qs = new URLSearchParams({ name, phone }).toString();
-      fetch(`${API_URL}?${qs}`, { method: 'GET' })
-        .finally(() => window.location.href = 'thanks.html');
-    });
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('order_form');
+  if (!form) return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    if (!name || !phone) {
+      alert('Будь ласка, заповніть всі поля!');
+      return;
+    }
+    const qs = new URLSearchParams({ name, phone }).toString();
+    fetch(`${API_URL}?${qs}`, { method: 'GET' })
+      .finally(() => window.location.href = 'thanks.html');
   });
+});
 </script>
 
 
