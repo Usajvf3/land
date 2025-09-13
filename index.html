@@ -428,31 +428,27 @@ document.getElementById('order_form').addEventListener('submit', async (e) => {
     return;
   }
 
-  // Настройки Telegram
-  const botToken = '8492105823:AAEvFu7fVOx0NLCopV4Kz9tuG2WeFu3QW0M'; // Вставьте токен вашего бота
-  const chatId = '468926553';     // Вставьте ваш chat_id
-  const message = `Нова заявка!\nІм'я: ${name}\nТелефон: ${phone}`;
+<script>
+  // Заменить на ваш URL из Cloudflare Workers (заканчивается на /send)
+  const API_URL = 'lead-proxy.devis-math-ragnar.workers.dev/send';
 
-  try {
-    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        chat_id: chatId,
-        text: message
-      })
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('order_form');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name  = form.name.value.trim();
+      const phone = form.phone.value.trim();
+      if (!name || !phone) {
+        alert('Будь ласка, заповніть всі поля!');
+        return;
+      }
+      const qs = new URLSearchParams({ name, phone }).toString();
+      fetch(`${API_URL}?${qs}`, { method: 'GET' })
+        .finally(() => window.location.href = 'thanks.html');
     });
-
-    if(response.ok){
-      window.location.href = 'thanks.html'; // Перенаправление на страницу благодарности
-    } else {
-      alert('Помилка при відправці заявки. Будь ласка, спробуйте ще раз.');
-    }
-  } catch (err) {
-    console.error(err);
-    alert('Не вдалося відправити заявку. Перевірте підключення до інтернету.');
-  }
-});
+  });
 </script>
 
 
