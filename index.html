@@ -487,19 +487,23 @@
           body: JSON.stringify({ name, phone })
         });
 
+        console.log('Response status:', resp.status);
+        const text = await resp.text();
+        console.log('Response body:', text);
+
         if (resp.ok) {
           window.location.href = 'thanks.html';
         } else {
-          console.error(await resp.text());
-          alert('Помилка відправки. Спробуйте ще раз.');
+          alert(`Помилка відправки: ${resp.status}. Деталі — в консолі.`);
         }
       } catch (err) {
-        console.error(err);
+        console.error('Fetch error:', err);
         alert('Помилка відправки. Спробуйте ще раз.');
       }
     });
   });
 </script>
+
 
 
 
