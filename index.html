@@ -402,7 +402,7 @@
                     <!--<li>Повертається на 360 градусів</li>-->
                 </ul>
 
-                <h2>Залишіть заявку</h2>
+               <h2>Залишіть заявку</h2>
 <form id="order_form">
   <div class="btn-block">
       <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required>
@@ -418,28 +418,36 @@
 <script>
 document.getElementById('order_form').addEventListener('submit', async (e) => {
   e.preventDefault();
+  
   const formData = new FormData(e.target);
-  const name = formData.get('name');
-  const phone = formData.get('phone');
+  const name = formData.get('name').trim();
+  const phone = formData.get('phone').trim();
+
+  if(!name || !phone){
+    alert('Будь ласка, заповніть всі поля.');
+    return;
+  }
 
   try {
     const response = await fetch('https://maker.ifttt.com/trigger/new_lead/with/key/sXbR5xAf', {
       method: 'POST',
-      body: JSON.stringify({ value1: name, value2: phone }),
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ value1: name, value2: phone })
     });
 
     if(response.ok){
+      // перенаправление на страницу благодарности
       window.location.href = 'thanks.html';
     } else {
-      alert('Помилка при відправці заявки. Спробуйте ще раз.');
+      alert('Помилка при відправці заявки. Будь ласка, спробуйте ще раз.');
     }
   } catch (err) {
     console.error(err);
-    alert('Не вдалося відправити заявку.');
+    alert('Не вдалося відправити заявку. Перевірте підключення до інтернету.');
   }
 });
 </script>
+
 
 
 <div class="products_count">* Купили <b>17</b> шт за акцією</div>
