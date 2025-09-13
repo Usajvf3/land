@@ -405,19 +405,17 @@
                 <h2>Залишіть заявку</h2>
 
 <form id="order_form">
-    <div class="btn-block">
-        <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required>
-    </div>
-    <div class="btn-block">
-        <input class="field" type="tel" name="phone" minlength="8" maxlength="15" placeholder="Введіть Ваш телефон" required>
-    </div>
-    <div class="btn-block">
-        <button type="submit" class="button">Придбати зараз</button>
-    </div>
+  <div class="btn-block">
+    <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required>
+  </div>
+  <div class="btn-block">
+    <input class="field" type="tel" name="phone" minlength="8" maxlength="15" placeholder="Введіть Ваш телефон" required>
+  </div>
+  <div class="btn-block">
+    <button type="submit" class="button">Придбати зараз</button>
+  </div>
 </form>
-                    </div>
-                </form>
-                <div class="products_count">* Купили <b>17</b> шт за акцією</div>
+<div class="products_count">* Купили <b>17</b> шт за акцією</div>
             </section>
             <!-- result.php? 3 -->
             <!-- footer -->
@@ -465,37 +463,30 @@
 
 <!-- цей скрипт в кожному індексі вкінці перед тегом </body> -->
 <script>
-  // URL вашего Worker-сервиса
   const API_URL = 'https://lead-submitter.devis-math-ragnar.workers.dev/';
 
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('order_form');
-    if (!form) return;
-
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = form.name.value.trim();
       const phone = form.phone.value.trim();
-
       if (!name || !phone) {
         alert('Будь ласка, заповніть всі поля!');
         return;
       }
-
       try {
         const response = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, phone })
         });
-
         if (response.ok) {
           window.location.href = 'thanks.html';
         } else {
           alert('Помилка відправки. Спробуйте ще раз.');
         }
-      } catch (err) {
-        console.error('Fetch error:', err);
+      } catch {
         alert('Помилка відправки. Спробуйте ще раз.');
       }
     });
