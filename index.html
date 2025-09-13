@@ -403,11 +403,32 @@
                 </ul>
 
                 <h2>Залишіть заявку</h2>
+<<form id="order_form">
+    <div class="btn-block">
+        <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required>
+    </div>
+    <div class="btn-block">
+        <input class="field" type="tel" name="phone" minlength="8" maxlength="15" placeholder="Введіть Ваш телефон" required>
+    </div>
+    <div class="btn-block">
+        <button type="submit" class="button">Придбати зараз</button>
+    </div>
+<script>
+  document.getElementById('order_form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdnm1m6Vx2NFQMp-uYQHfpWBuLJfviEaRqAHQZfGllYcZJvuw/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">
-  Загрузка…
-</iframe>
+    // Отправляем заявку на IFTTT Webhook
+    const name = formData.get('name');
+    const phone = formData.get('phone');
 
+    try {
+      await fetch('https://maker.ifttt.com/trigger/new_lead/with/key/sXbR5xAf', {
+        method: 'POST',
+        body: JSON.stringify({ value1: name, value2: phone }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+</script>
 
 <div class="products_count">* Купили <b>17</b> шт за акцією</div>
             </section>
