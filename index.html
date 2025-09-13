@@ -465,42 +465,28 @@
 
 <!-- цей скрипт в кожному індексі вкінці перед тегом </body> -->
 <script>
-const TOKEN = '8492105823:AAEvFu7fVOx0NLCopV4Kz9tuG2WeFu3QW0M';
-const CHATID = '-1002775753701';
-
-document.addEventListener('DOMContentLoaded', () => {
+  const API_URL = 'https://lead-submitter.YOUR-ACCOUNT.workers.dev/';
+  document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('order_form');
-
     form.addEventListener('submit', async (e) => {
-        e.preventDefault(); // блокируем стандартную отправку формы
-
-        const name = form.querySelector('[name="name"]').value.trim();
-        const phone = form.querySelector('[name="phone"]').value.trim();
-
-        if (!name || !phone) {
-            alert('Будь ласка, заповніть всі поля!');
-            return;
-        }
-
-        const message = `Нова заявка!\nІм'я: ${name}\nТелефон: ${phone}`;
-        const url = `https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHATID}&text=${encodeURIComponent(message)}`;
-
-        try {
-            const response = await fetch(url);
-            if (response.ok) {
-                // Перенаправление на страницу благодарности
-                window.location.href = 'thanks.html'; // <-- укажи путь к своей странице спасибо
-            } else {
-                alert('Помилка при відправці заявки. Спробуйте ще раз.');
-                console.error(response);
-            }
-        } catch (err) {
-            alert('Помилка при відправці заявки. Спробуйте ще раз.');
-            console.error(err);
-        }
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const phone = form.phone.value.trim();
+      if (!name || !phone) {
+        alert('Будь ласка, заповніть всі поля!');
+        return;
+      }
+      try {
+        const r = await fetch(`${API_URL}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}`);
+        if (r.ok) window.location.href = 'thanks.html';
+        else alert('Помилка відправки. Спробуйте ще раз.');
+      } catch {
+        alert('Помилка відправки. Спробуйте ще раз.');
+      }
     });
-});
+  });
 </script>
+
 
 
 
