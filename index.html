@@ -470,8 +470,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('order_form');
     if (!form) return;
-
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       const name = form.name.value.trim();
       const phone = form.phone.value.trim();
@@ -479,30 +478,24 @@
         alert('Будь ласка, заповніть всі поля!');
         return;
       }
-
       try {
-        const resp = await fetch(API_URL, {
+        const res = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, phone })
         });
-
-        console.log('Response status:', resp.status);
-        const text = await resp.text();
-        console.log('Response body:', text);
-
-        if (resp.ok) {
+        if (res.ok) {
           window.location.href = 'thanks.html';
         } else {
-          alert(`Помилка відправки: ${resp.status}. Деталі — в консолі.`);
+          alert('Помилка відправки. Спробуйте ще раз.');
         }
-      } catch (err) {
-        console.error('Fetch error:', err);
+      } catch {
         alert('Помилка відправки. Спробуйте ще раз.');
       }
     });
   });
 </script>
+
 
 
 
