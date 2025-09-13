@@ -465,36 +465,43 @@
 
 <!-- цей скрипт в кожному індексі вкінці перед тегом </body> -->
 <script>
+  // URL вашего Worker-сервиса
   const API_URL = 'https://lead-submitter.devis-math-ragnar.workers.dev/';
 
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('order_form');
     if (!form) return;
-    form.addEventListener('submit', async e => {
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = form.name.value.trim();
       const phone = form.phone.value.trim();
+
       if (!name || !phone) {
         alert('Будь ласка, заповніть всі поля!');
         return;
       }
+
       try {
-        const res = await fetch(API_URL, {
+        const response = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, phone })
         });
-        if (res.ok) {
+
+        if (response.ok) {
           window.location.href = 'thanks.html';
         } else {
           alert('Помилка відправки. Спробуйте ще раз.');
         }
-      } catch {
+      } catch (err) {
+        console.error('Fetch error:', err);
         alert('Помилка відправки. Спробуйте ще раз.');
       }
     });
   });
 </script>
+
 
 
 
