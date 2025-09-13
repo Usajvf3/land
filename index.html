@@ -405,11 +405,16 @@
                 <h2>Залишіть заявку</h2>
 
 <form id="order_form">
-  <input type="text" name="name" placeholder="Ваше ім'я" required>
-  <input type="tel" name="phone" placeholder="Ваш телефон" required>
-  <button type="submit">Відправити</button>
+    <div class="btn-block">
+        <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required>
+    </div>
+    <div class="btn-block">
+        <input class="field" type="tel" name="phone" minlength="8" maxlength="15" placeholder="Введіть Ваш телефон" required>
+    </div>
+    <div class="btn-block">
+        <button type="submit" class="button">Придбати зараз</button>
+    </div>
 </form>
-
 <div class="products_count">* Купили <b>17</b> шт за акцією</div>
             </section>
             <!-- result.php? 3 -->
