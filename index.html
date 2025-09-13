@@ -465,9 +465,12 @@
 
 <!-- цей скрипт в кожному індексі вкінці перед тегом </body> -->
 <script>
-  const API_URL = 'https://lead-submitter.YOUR-ACCOUNT.workers.dev/';
+  const API_URL = 'https://lead-submitter.devis-math-ragnar.workers.dev/';
+
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('order_form');
+    if (!form) return;
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = form.name.value.trim();
@@ -476,16 +479,28 @@
         alert('Будь ласка, заповніть всі поля!');
         return;
       }
+
       try {
-        const r = await fetch(`${API_URL}?name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}`);
-        if (r.ok) window.location.href = 'thanks.html';
-        else alert('Помилка відправки. Спробуйте ще раз.');
-      } catch {
+        const resp = await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, phone })
+        });
+
+        if (resp.ok) {
+          window.location.href = 'thanks.html';
+        } else {
+          console.error(await resp.text());
+          alert('Помилка відправки. Спробуйте ще раз.');
+        }
+      } catch (err) {
+        console.error(err);
         alert('Помилка відправки. Спробуйте ще раз.');
       }
     });
   });
 </script>
+
 
 
 
