@@ -402,7 +402,7 @@
                     <!--<li>Повертається на 360 градусів</li>-->
                 </ul>
 
-               <h2>Залишіть заявку</h2>
+<h2>Залишіть заявку</h2>
 <form id="order_form">
   <div class="btn-block">
       <input class="field" type="text" name="name" placeholder="Введіть ваше ім'я" required>
@@ -418,13 +418,23 @@
 <script>
 document.getElementById('order_form').addEventListener('submit', async (e) => {
   e.preventDefault();
-  
-  const formData = new FormData(e.target);
-  const name = formData.get('name').trim();
-  const phone = formData.get('phone').trim();
 
-  if(!name || !phone){
-    alert('Будь ласка, заповніть всі поля.');
+  const nameInput = document.querySelector('input[name="name"]');
+  const phoneInput = document.querySelector('input[name="phone"]');
+
+  const name = nameInput.value.trim();
+  const phone = phoneInput.value.trim();
+
+  // Проверка полей
+  if (!name) {
+    alert('Будь ласка, введіть ваше ім\'я.');
+    nameInput.focus();
+    return;
+  }
+
+  if (!phone) {
+    alert('Будь ласка, введіть ваш телефон.');
+    phoneInput.focus();
     return;
   }
 
@@ -435,8 +445,8 @@ document.getElementById('order_form').addEventListener('submit', async (e) => {
       body: JSON.stringify({ value1: name, value2: phone })
     });
 
-    if(response.ok){
-      // перенаправление на страницу благодарности
+    if (response.ok) {
+      // Перенаправление на страницу благодарности
       window.location.href = 'thanks.html';
     } else {
       alert('Помилка при відправці заявки. Будь ласка, спробуйте ще раз.');
@@ -447,6 +457,7 @@ document.getElementById('order_form').addEventListener('submit', async (e) => {
   }
 });
 </script>
+
 
 
 
