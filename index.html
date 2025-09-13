@@ -476,36 +476,6 @@
 
 <script src="js/jquery.js"></script>
 
-<!-- цей скрипт в кожному індексі вкінці перед тегом </body> -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('order_form');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("https://lead-submitter.devis-math-ragnar.workers.dev", {
-        method: "POST",
-        body: formData
-      });
-
-      if (response.ok) {
-        // редирект на сторінку "спасибі"
-        window.location.href = 'thanks.html';
-      } else {
-        alert('Помилка при відправці заявки. Спробуйте ще раз.');
-      }
-    } catch (err) {
-      alert('Не вдалося відправити заявку.');
-      console.error(err);
-    }
-  });
-});
-</script>
-
 
 
 
