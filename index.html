@@ -5429,8 +5429,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
-
-<script>
 <script>
 const API_URL = 'https://lead-proxy.devis-math-ragnar.workers.dev/send';
 
@@ -5439,24 +5437,21 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!form) return;
 
   const deliverySelect = form.delivery;
-  const novaBlock = document.getElementById('nova_office_block');
-  const ukrBlock = document.getElementById('ukr_index_block');
+  const novaBlock = document.getElementById('nova-field');
+  const ukrBlock = document.getElementById('ukr-field');
 
-  // Показ нужного поля в зависимости от доставки
-  if (deliverySelect) {
-    deliverySelect.addEventListener('change', () => {
-      if (deliverySelect.value === 'Нова Пошта') {
-        novaBlock.style.display = 'block';
-        ukrBlock.style.display = 'none';
-      } else if (deliverySelect.value === 'Укрпошта') {
-        novaBlock.style.display = 'none';
-        ukrBlock.style.display = 'block';
-      } else {
-        novaBlock.style.display = 'none';
-        ukrBlock.style.display = 'none';
-      }
-    });
-  }
+  deliverySelect.addEventListener('change', () => {
+    if (deliverySelect.value === 'nova') {
+      novaBlock.style.display = 'block';
+      ukrBlock.style.display = 'none';
+    } else if (deliverySelect.value === 'ukr') {
+      novaBlock.style.display = 'none';
+      ukrBlock.style.display = 'block';
+    } else {
+      novaBlock.style.display = 'none';
+      ukrBlock.style.display = 'none';
+    }
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -5464,22 +5459,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const name = form.name.value.trim();
     const phone = form.phone.value.trim();
     const product = form['product-data'].value;
-    const city = form.city ? form.city.value.trim() : '-';
-    const delivery = form.delivery ? form.delivery.value : '-';
-    const nova_office = form.nova_office ? form.nova_office.value.trim() : '-';
-    const ukr_index = form.ukr_index ? form.ukr_index.value.trim() : '-';
+    const city = form.city.value.trim();
+    const delivery = form.delivery.value;
+    const nova_office = form.nova ? form.nova.value.trim() : '-';
+    const ukr_index = form.ukr ? form.ukr.value.trim() : '-';
 
     if (!name || !phone || !city || !delivery) {
       alert('Будь ласка, заповніть всі обов\'язкові поля!');
       return;
     }
 
-    const qs = new URLSearchParams({ name, phone, product, city, delivery, nova_office, ukr_index }).toString();
+    const qs = new URLSearchParams({ name, phone, product, city, delivery, nova, ukr }).toString();
 
     fetch(`${API_URL}?${qs}`, { method: 'GET' })
       .finally(() => window.location.href = 'thanks.html');
   });
 });
+
 </script>
 
 
