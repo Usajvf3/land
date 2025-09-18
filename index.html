@@ -5469,14 +5469,14 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const qs = new URLSearchParams({ name, phone, product, city, delivery, nova, ukr }).toString();
+    const qs = new URLSearchParams({ name, phone, product, city, delivery, nova_office, ukr_index }).toString();
 
     fetch(`${API_URL}?${qs}`, { method: 'GET' })
       .finally(() => window.location.href = 'thanks.html');
   });
 });
-
 </script>
+
 
 
 
