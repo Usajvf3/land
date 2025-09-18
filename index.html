@@ -5361,28 +5361,74 @@
     }
   </style>
 
-  <br>
-  <div class="btn-block">
-    <input class="field1" type="text" name="name" placeholder="Введіть ваше ім'я" required="">
-  </div>
-  <div class="btn-block">
-    <input class="field1" type="tel" name="phone" placeholder="Введіть Ваш телефон" autocomplete="off" inputmode="tel" required="">
-  </div>
-  <div class="btn-block">
-    <select name="product-data" required="" class="field1">
-      <option value="449|1">Обрати кiлькiсть (шт.)</option>
-      <option value="449|1">1 шт. HitMapMassager 449 грн.</option>
-      <option value="474|2">2 шт. HitMapMassager 819 грн.</option>
-      <option value="476|3">3 шт. HitMapMassager 1199 грн.</option>
-    </select>
-  </div>
-  <button name="submit_btn" style="border-radius: 20px; margin: 20px auto 0px; padding: 15px 30px; background-color: rgb(246, 197, 103); width: 90%; display: block;">
-    <span class="btn-headline" style="color: rgb(43, 54, 116); font-weight: bold; font-size: 24px; text-align: center;">ЗАМОВИТИ ЗІ ЗНИЖКОЮ</span>
-  </button>
+ <br>
+<div class="btn-block">
+  <input class="field1" type="text" name="name" placeholder="Введіть ваше ім'я" required="">
+</div>
+
+<div class="btn-block">
+  <input class="field1" type="tel" name="phone" placeholder="Введіть Ваш телефон" autocomplete="off" inputmode="tel" required="">
+</div>
+
+<div class="btn-block">
+  <input class="field1" type="text" name="city" placeholder="Введіть ваше місто" required="">
+</div>
+
+<div class="btn-block">
+  <select name="product-data" required class="field1">
+    <option value="" disabled selected>Обрати кiлькiсть (шт.)</option>
+    <option value="449|1">1 шт. HitMapMassager 449 грн.</option>
+    <option value="474|2">2 шт. HitMapMassager 819 грн.</option>
+    <option value="476|3">3 шт. HitMapMassager 1199 грн.</option>
+  </select>
+</div>
+
+<div class="btn-block">
+  <select id="delivery" name="delivery" required class="field1">
+    <option value="" disabled selected>Оберіть спосіб доставки</option>
+    <option value="nova">Нова пошта</option>
+    <option value="ukr">Укр пошта</option>
+  </select>
+</div>
+
+<!-- Поле для НП / УкрП -->
+<div class="btn-block" id="nova-field" style="display:none;">
+  <input class="field1" type="text" name="nova" placeholder="Введіть номер відділення">
+</div>
+
+<div class="btn-block" id="ukr-field" style="display:none;">
+  <input class="field1" type="text" name="ukr" placeholder="Введіть поштовий індекс">
+</div>
+
+<button name="submit_btn" style="border-radius: 20px; margin: 20px auto 0px; padding: 15px 30px; background-color: rgb(246, 197, 103); width: 90%; display: block;">
+  <span class="btn-headline" style="color: rgb(43, 54, 116); font-weight: bold; font-size: 24px; text-align: center;">ЗАМОВИТИ ЗІ ЗНИЖКОЮ</span>
+</button>
 </form>
 
 <br>
 <div class="wpcf7-response-output" aria-hidden="true"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const delivery = document.getElementById("delivery");
+  const nova = document.getElementById("nova-field");
+  const ukr = document.getElementById("ukr-field");
+
+  delivery.addEventListener("change", () => {
+    if (delivery.value === "nova") {
+      nova.style.display = "block";
+      ukr.style.display = "none";
+    } else if (delivery.value === "ukr") {
+      nova.style.display = "none";
+      ukr.style.display = "block";
+    } else {
+      nova.style.display = "none";
+      ukr.style.display = "none";
+    }
+  });
+});
+</script>
+
 
 <script>
 const API_URL = 'https://lead-proxy.devis-math-ragnar.workers.dev/send'; // полный https URL
