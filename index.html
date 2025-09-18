@@ -5431,31 +5431,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <script>
-const API_URL = 'https://lead-proxy.devis-math-ragnar.workers.dev/send'; // полный https URL
+<script>
+const API_URL = 'https://lead-proxy.devis-math-ragnar.workers.dev/send';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('order_form');
   if (!form) return;
 
+  const deliverySelect = form.delivery;
+  const novaBlock = document.getElementById('nova_office_block');
+  const ukrBlock = document.getElementById('ukr_index_block');
+
+  // Показ нужного поля в зависимости от доставки
+  if (deliverySelect) {
+    deliverySelect.addEventListener('change', () => {
+      if (deliverySelect.value === 'Нова Пошта') {
+        novaBlock.style.display = 'block';
+        ukrBlock.style.display = 'none';
+      } else if (deliverySelect.value === 'Укрпошта') {
+        novaBlock.style.display = 'none';
+        ukrBlock.style.display = 'block';
+      } else {
+        novaBlock.style.display = 'none';
+        ukrBlock.style.display = 'none';
+      }
+    });
+  }
+
   form.addEventListener('submit', (e) => {
-    e.preventDefault(); // блокируем обычный POST
+    e.preventDefault();
 
     const name = form.name.value.trim();
     const phone = form.phone.value.trim();
     const product = form['product-data'].value;
+    const city = form.city ? form.city.value.trim() : '-';
+    const delivery = form.delivery ? form.delivery.value : '-';
+    const nova_office = form.nova_office ? form.nova_office.value.trim() : '-';
+    const ukr_index = form.ukr_index ? form.ukr_index.value.trim() : '-';
 
-    if (!name || !phone) {
-      alert('Будь ласка, заповніть всі поля!');
+    if (!name || !phone || !city || !delivery) {
+      alert('Будь ласка, заповніть всі обов\'язкові поля!');
       return;
     }
 
-    const qs = new URLSearchParams({ name, phone, product }).toString();
+    const qs = new URLSearchParams({ name, phone, product, city, delivery, nova_office, ukr_index }).toString();
 
     fetch(`${API_URL}?${qs}`, { method: 'GET' })
-      .finally(() => window.location.href = 'thanks.html'); // редирект на Thanks.html
+      .finally(() => window.location.href = 'thanks.html');
   });
 });
 </script>
+
 
 
 
