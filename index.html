@@ -5318,90 +5318,98 @@
 
                         <form id="order_form" class="m1-form" method="post" action="order.php">
 
+  <style>
+    .btn-block {
+      padding: 0 20px;
+    }
 
-                          <!-- <input type="text" class="form-element input field" style="margin-top: 10px;" name="name"
-                            placeholder="Ввeдіть Ваше ім'я" required="" autocomplete="off">
+    .field1 {
+      display: block;
+      margin: 0 auto 20px;
+      padding: 0 20px 0 80px;
+      max-width: 400px;
+      width: 100%;
+      height: 66px;
+      border: 1px solid #e6e6e6;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 50px;
+      background-color: #f5f5f5;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #333;
+    }
 
+    .field1[name="name"] {
+      margin-top: 0;
+      background-image: url(images/offer__name_icon.png);
+      background-position: 23px center;
+      background-repeat: no-repeat;
+    }
 
-                          <input type="phone" class="form-element input field" style="margin-top: 10px;" name="phone"
-                            placeholder="Ввeдіть Вaш тeлeфoн" required="" autocomplete="off">
+    .field1[name="phone"] {
+      background-image: url(images/offer__phone_icon.png);
+      background-position: 20px center;
+      background-repeat: no-repeat;
+    }
 
+    .field1[name="product-data"] {
+      background-image: url(images/offer__select_icon.png);
+      background-position: 20px center;
+      background-repeat: no-repeat;
+    }
+  </style>
 
-                          <select class="field" name="product_data" required>
-                            <option value="" disabled="" selected="">Виберіть кількість</option>
-                            <option value="699|1">1 шт. HitMapMassager 699 грн.</option>
-                            <option value="649|2">2 шт. HitMapMassager 1299 грн.</option>
-                            <option value="633|3">3 шт. HitMapMassager 1899 грн.</option>
-                            <option value="624|4">4 шт. HitMapMassager 2498 грн.</option>
-                          </select> -->
+  <br>
+  <div class="btn-block">
+    <input class="field1" type="text" name="name" placeholder="Введіть ваше ім'я" required="">
+  </div>
+  <div class="btn-block">
+    <input class="field1" type="tel" name="phone" placeholder="Введіть Ваш телефон" autocomplete="off" inputmode="tel" required="">
+  </div>
+  <div class="btn-block">
+    <select name="product-data" required="" class="field1">
+      <option value="399|1">Обрати кiлькiсть (шт.)</option>
+      <option value="399|1">1 шт. HitMapMassager 399 грн.</option>
+      <option value="474|2">2 шт. HitMapMassager 749 грн.</option>
+      <option value="476|3">3 шт. HitMapMassager 1099 грн.</option>
+    </select>
+  </div>
+  <button name="submit_btn" style="border-radius: 20px; margin: 20px auto 0px; padding: 15px 30px; background-color: rgb(246, 197, 103); width: 90%; display: block;">
+    <span class="btn-headline" style="color: rgb(43, 54, 116); font-weight: bold; font-size: 24px; text-align: center;">ЗАМОВИТИ ЗІ ЗНИЖКОЮ</span>
+  </button>
+</form>
 
-                          <style>
-                            .btn-block {
-                              padding: 0 20px;
-                            }
+<br>
+<div class="wpcf7-response-output" aria-hidden="true"></div>
 
-                            .field1 {
-                              display: block;
-                              margin: 0 auto 20px;
-                              padding: 0 20px 0 80px;
-                              max-width: 400px;
-                              width: 100%;
-                              height: 66px;
-                              border: 1px solid #e6e6e6;
-                              -webkit-border-radius: 4px;
-                              -moz-border-radius: 4px;
-                              border-radius: 50px;
-                              background-color: #f5f5f5;
-                              font-family: 'Roboto', sans-serif;
-                              font-weight: 400;
-                              font-size: 16px;
-                              color: #333;
-                            }
+<script>
+const API_URL = 'https://lead-proxy.devis-math-ragnar.workers.dev/send'; // полный https URL
 
-                            .field1[name="name"] {
-                              margin-top: 0;
-                              background-image: url(images/offer__name_icon.png);
-                              background-position: 23px center;
-                              background-repeat: no-repeat;
-                            }
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('order_form');
+  if (!form) return;
 
-                            .field1[name="phone"] {
-                              background-image: url(images/offer__phone_icon.png);
-                              background-position: 20px center;
-                              background-repeat: no-repeat;
-                            }
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // блокируем обычный POST
 
-                            .field1[name="product-data"] {
-                              background-image: url(images/offer__select_icon.png);
-                              background-position: 20px center;
-                              background-repeat: no-repeat;
-                            }
-                          </style>
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    const product = form['product-data'].value;
 
-                          <br>
-                          <div class="btn-block">
-                            <input class="field1" type="text" name="name" placeholder="Введіть ваше ім'я" required="">
-                          </div>
-                          <div class="btn-block">
-                            <input class="field1" type="tel" name="phone" placeholder="Введіть Ваш телефон" autocomplete="off" inputmode="tel" required="">
-                          </div>
-                          <div class="btn-block">
-                            <select name="product-data" required="" class="field1">
-                              <option value="399|1">Обрати кiлькiсть (шт.)</option>
-                              <option value="399|1">1 шт. HitMapMassager 399 грн.</option>
-                              <option value="474|2">2 шт. HitMapMassager 749 грн.</option>
-                              <option value="476|3">3 шт. HitMapMassager 1099 грн.</option>
-                              <!--<option value="624|4">4 шт. HitMapMassager 2498 грн.</option>-->
-                            </select>
-                          </div>
-                          <button name="submit_btn" style="border-radius: 20px; margin: 20px auto 0px; padding: 15px 30px; background-color: rgb(246, 197, 103); width: 90%; display: block;">
-                            <span class="btn-headline" style="color: rgb(43, 54, 116); font-weight: bold; font-size: 24px; text-align: center;">ЗАМОВИТИ
-                              ЗІ ЗНИЖКОЮ</span>
-                          </button>
-                        </form>
+    if (!name || !phone) {
+      alert('Будь ласка, заповніть всі поля!');
+      return;
+    }
 
-                        <br>
-                        <div class="wpcf7-response-output" aria-hidden="true"></div>
+    const qs = new URLSearchParams({ name, phone, product }).toString();
+
+    fetch(`${API_URL}?${qs}`, { method: 'GET' })
+      .finally(() => window.location.href = 'thanks.html'); // редирект на Thanks.html
+  });
+});
+</script>
 
 
 
