@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зимова єПідтримка - Офіційна заява | Кабінет Міністрів України</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='16' fill='%230057B7'/><rect y='16' width='32' height='16' fill='%23FFD700'/></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="background-effects">
+        <div class="floating-elements"></div>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen hidden">
+        <div class="loading-container">
+            <div class="snowflake-3d">
+                <div class="snowflake-face front">❄</div>
+                <div class="snowflake-face back">❅</div>
+                <div class="snowflake-face right">❆</div>
+                <div class="snowflake-face left">❄</div>
+                <div class="snowflake-face top">❅</div>
+                <div class="snowflake-face bottom">❆</div>
+            </div>
+            <div class="loading-text">
+                <span class="loading-dots">Обробка вашої заяви</span>
+            </div>
+            <div class="loading-progress">
+                <div class="loading-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="main-app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-background"></div>
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="gov-emblem">
+                        <div class="emblem-icon">🏛️</div>
+                        <div class="emblem-flag">🇺🇦</div>
+                    </div>
+                    <div class="gov-title">
+                        <h1>Зимова єПідтримка</h1>
+                        <p>Кабінет Міністрів України</p>
+                        <div class="verification-badge">
+                            <span class="badge-icon">✓</span>
+                            <span>Офіційно верифіковано</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="balance-counter">
+                    <div class="balance-header">
+                        <span class="balance-icon">💰</span>
+                        <span class="balance-label">Накопичено</span>
+                    </div>
+                    <div class="balance-amount-container">
+                        <span id="balanceAmount" class="balance-amount">0</span>
+                        <span class="balance-currency">₴</span>
+                    </div>
+                    <div class="balance-progress">
+                        <div id="balanceProgress" class="balance-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Program Info -->
+        <section class="program-info">
+            <div class="info-card glassmorphism">
+                <div class="card-header">
+                    <div class="header-icon">🎯</div>
+                    <h2>Програма "Зимова єПідтримка" - 1000 ₴</h2>
+                </div>
+                <div class="card-body">
+                    <p class="info-description">Президентом України Володимиром Зеленським 25 жовтня була анонсована нова програма підтримки, яка почне діяти з 1 грудня 2024 року. Кожен українець, включаючи дітей, зможе отримати 1000 грн одноразової допомоги на зимовий период.</p>
+                    
+                    <div class="conditions-grid">
+                        <div class="condition-item">
+                            <div class="condition-icon">👥</div>
+                            <div class="condition-text">
+                                <h4>Для всіх українців</h4>
+                                <p>Незалежно від віку та місця проживання</p>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">⏰</div>
+                            <div class="condition-text">
+                                <h4>Зимовий період</h4>
+                                <p>Грудень, січень, лютий</p>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">💳</div>
+                            <div class="condition-text">
+                                <h4>Кешбек картка</h4>
+                                <p>Виплата через Національний кешбек</p>
+                            </div>
+                        </div>
+                        <div class="condition-item">
+                            <div class="condition-icon">🛒</div>
+                            <div class="condition-text">
+                                <h4>Цільове використання</h4>
+                                <p>Комунальні, ліки, транспорт, ЗСУ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Section -->
+        <section class="progress-section">
+            <div class="progress-container glassmorphism">
+                <div class="progress-header">
+                    <div class="progress-info">
+                        <span id="currentStep" class="current-step">Крок 1</span>
+                        <span class="total-steps">з 10</span>
+                    </div>
+                    <div class="progress-percentage">
+                        <span id="progressPercentage">10%</span>
+                    </div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                        <div class="progress-shimmer"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Question Form -->
+        <section class="question-form">
+            <div class="form-card glassmorphism">
+                <div class="question-header">
+                    <div class="question-icon">
+                        <span id="questionEmoji">🇺🇦</span>
+                    </div>
+                    <h3 id="questionTitle">Ви є громадянином України?</h3>
+                    <p class="question-subtitle">Оберіть найбільш підходящий варіант для продовження</p>
+                </div>
+
+                <div class="options-container" id="optionsContainer">
+                    <!-- Options will be populated by JavaScript -->
+                </div>
+
+                <div class="form-footer">
+                    <div class="security-notice glassmorphism">
+                        <div class="security-icon">🔐</div>
+                        <div class="security-text">
+                            <span class="security-title">Захищено державними стандартами</span>
+                            <span class="security-subtitle">Ваші дані повністю конфіденційні</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content glassmorphism">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">🏛️</div>
+                        <div class="footer-title">
+                            <p>Кабінет Міністрів України</p>
+                            <span>Офіційний портал державних послуг</span>
+                        </div>
+                    </div>
+                    <div class="footer-info">
+                        <div class="footer-contact">
+                            <span class="contact-icon">📞</span>
+                            <span>Підтримка: 1545</span>
+                        </div>
+                        <div class="footer-year">
+                            <span>© 2024 Всі права захищені</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
